@@ -89,27 +89,29 @@
     box-shadow:0 10px 22px rgba(0,0,0,0.35);
     position:relative;
     transform:rotate(var(--r,-2deg));
-    min-width:0;
   }
   .polaroid:nth-child(1){--r:-4deg;}
   .polaroid:nth-child(2){--r:3deg; margin-top:26px;}
   .polaroid:nth-child(3){--r:2deg;}
   .polaroid:nth-child(4){--r:-3deg; margin-top:14px;}
-  
-  .polaroid img{
-    width:100%;
+  .polaroid .frame{
+    background:repeating-linear-gradient(135deg, #cfc6ad 0 6px, #c3b99e 6px 12px);
     aspect-ratio:1/1;
-    object-fit:cover;
-    display:block;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6b6350;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    text-align:center;
+    padding:8px;
   }
-
   .polaroid .cap{
     position:absolute;
     bottom:8px; left:10px; right:10px;
     font-family:'Space Mono',monospace;
     font-size:10px;
     color:#5a5342;
-    text-align:center;
   }
   .tape{
     position:absolute;
@@ -144,27 +146,11 @@
             introduce himself in his own words.
           </p>
         </div>
-        <div class="gallery">
-          <div class="polaroid">
-            <div class="tape"></div>
-            <img src="images/intro-01.jpg" alt="Brooklyn Photo 1">
-            <div class="cap">ghostly-presence</div>
-          </div>
-          <div class="polaroid">
-            <div class="tape"></div>
-            <img src="images/intro-02.jpg" alt="Brooklyn Photo 2">
-            <div class="cap">must-touch boy [ohh, it's a beard pala]</div>
-          </div>
-          <div class="polaroid">
-            <div class="tape"></div>
-            <img src="images/intro-03.jpg" alt="Brooklyn Photo 3">
-            <div class="cap">naked boy [ughh, kidding]</div>
-          </div>
-          <div class="polaroid">
-            <div class="tape"></div>
-            <img src="images/intro-04.jpg" alt="Brooklyn Photo 4">
-            <div class="cap">wowowo- woah!</div>
-          </div>
+        <div class="gallery" aria-hidden="true">
+          <div class="polaroid"><div class="tape"></div><div class="frame">photo 01</div><div class="cap">add your photo</div></div>
+          <div class="polaroid"><div class="tape"></div><div class="frame">photo 02</div><div class="cap">add your photo</div></div>
+          <div class="polaroid"><div class="tape"></div><div class="frame">photo 03</div><div class="cap">add your photo</div></div>
+          <div class="polaroid"><div class="tape"></div><div class="frame">photo 04</div><div class="cap">add your photo</div></div>
         </div>
       </div>
     </div>
