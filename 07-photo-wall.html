@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Wall</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#182430;
+    --denim-1:#2f4d64;
+    --denim-2:#25404f;
+    --paper-cream:#f2ecdd;
+    --mustard:#d3a13f;
+    --kraft-tan:#c9a876;
+    --cream-text:#f4efe2;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;width:100%;}
+  body{ font-family:'Space Mono',monospace; }
+
+  .panel{
+    width:100%;
+    background:linear-gradient(160deg, var(--denim-1) 0%, var(--denim-2) 100%);
+    padding:34px 40px 44px;
+  }
+  .panel-head{ margin-bottom:24px; }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--kraft-tan);
+  }
+  .panel-head h2{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:600;
+    color:var(--cream-text);
+    font-size:28px;
+    margin:4px 0 0;
+  }
+
+  .wall{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px 16px;
+  }
+  .card{
+    background:var(--paper-cream);
+    padding:8px 8px 30px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.35);
+    position:relative;
+    transform:rotate(var(--r,0deg));
+  }
+  .card:nth-child(4n+1){ --r:-2.4deg; }
+  .card:nth-child(4n+2){ --r:1.6deg; margin-top:14px; }
+  .card:nth-child(4n+3){ --r:-1deg; }
+  .card:nth-child(4n+4){ --r:2.6deg; margin-top:8px; }
+
+  .card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    display:block;
+  }
+  .tape{
+    position:absolute;
+    width:50px; height:18px;
+    background:rgba(201,168,118,0.85);
+    top:-9px; left:50%;
+    transform:translateX(-50%) rotate(-3deg);
+    box-shadow:0 2px 4px rgba(0,0,0,0.25);
+  }
+  .cap{
+    position:absolute;
+    bottom:8px; left:8px; right:8px;
+    font-size:9.5px;
+    color:#5a5342;
+    text-align:center;
+    letter-spacing:.02em;
+  }
+
+  @media (max-width:820px){
+    .wall{ grid-template-columns:repeat(3, 1fr); }
+  }
+  @media (max-width:560px){
+    .panel{ padding:24px 20px 32px; }
+    .wall{ grid-template-columns:repeat(2, 1fr); gap:16px 12px; }
+  }
+</style>
+</head>
+<body>
+  <div class="panel">
+    <div class="panel-head">
+      <div class="eyebrow">Field Notes</div>
+      <h2>A Few From The Roll</h2>
+    </div>
+
+    <!--
+      PHOTO WALL
+      ---------------------------------------------------------
+      Real photos live in the images/ folder next to this file.
+      Add more cards the same way as your batch 2 photos come in —
+      just copy a .card block and point the src at the new file.
+    -->
+    <div class="wall">
+      <div class="card"><div class="tape"></div><img src="images/photo-01.jpg" alt=""><div class="cap">candid &amp; unbothered</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-02.jpg" alt=""><div class="cap">leadership night</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-03.jpg" alt=""><div class="cap">the pledge</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-04.jpg" alt=""><div class="cap">mall run, chaos era</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-05.jpg" alt=""><div class="cap">gift shop shenanigans</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-06.jpg" alt=""><div class="cap">soft-serve stop</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-07.jpg" alt=""><div class="cap">outfit check</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-08.jpg" alt=""><div class="cap">late night call</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-11.jpg" alt=""><div class="cap">caught mid-laugh</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-12.jpg" alt=""><div class="cap">mirror check, red jacket era</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-13.jpg" alt=""><div class="cap">same fit, different mood</div></div>
+      <div class="card"><div class="tape"></div><img src="images/photo-14.jpg" alt=""><div class="cap">one more take</div></div>
+    </div>
+  </div>
+</body>
+</html>
