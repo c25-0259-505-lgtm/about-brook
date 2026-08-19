@@ -1,111 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meet Oreo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink-navy:#182430;
-    --denim-1:#2f4d64;
-    --denim-2:#25404f;
-    --paper-cream:#f2ecdd;
-    --mustard:#d3a13f;
-    --kraft-tan:#c9a876;
-    --cream-text:#f4efe2;
-    --ink-text:#1b232b;
-    --quote-slate:rgba(178,190,196,0.55);
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;width:100%;}
-  body{ font-family:'Lora',serif; color:var(--ink-text); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Oreo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink-navy: #182430;
+      --denim-1: #2f4d64;
+      --denim-2: #25404f;
+      --paper-cream: #f2ecdd;
+      --mustard: #d3a13f;
+      --kraft-tan: #c9a876;
+      --cream-text: #f4efe2;
+      --ink-text: #1b232b;
+      --quote-slate: rgba(178, 190, 196, 0.55);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    body {
+      font-family: 'Lora', serif;
+      color: var(--ink-text);
+    }
 
-  .panel{
-    width:100%;
-    background:linear-gradient(160deg, var(--denim-1) 0%, var(--denim-2) 100%);
-    padding:38px 44px 44px;
-  }
-  .eyebrow{
-    font-family:'Space Mono',monospace;
-    font-size:11px;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    color:var(--kraft-tan);
-  }
-  .title-strip{
-    display:inline-block;
-    background:var(--ink-navy);
-    color:var(--cream-text);
-    padding:10px 20px;
-    font-weight:600;
-    font-size:20px;
-    margin:6px 0 26px;
-    box-shadow:4px 4px 0 rgba(0,0,0,0.25);
-  }
-  .title-strip em{ font-style:italic; color:var(--mustard); font-family:'Playfair Display',serif; }
+    .panel {
+      width: 100%;
+      background: linear-gradient(160deg, var(--denim-1) 0%, var(--denim-2) 100%);
+      padding: 38px 44px 44px;
+    }
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--kraft-tan);
+    }
+    .title-strip {
+      display: inline-block;
+      background: var(--ink-navy);
+      color: var(--cream-text);
+      padding: 10px 20px;
+      font-weight: 600;
+      font-size: 20px;
+      margin: 6px 0 26px;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+    }
+    .title-strip em {
+      font-style: italic;
+      color: var(--mustard);
+      font-family: 'Playfair Display', serif;
+    }
 
-  .row{
-    display:flex;
-    gap:36px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-  }
-  .story{ flex:1 1 56%; min-width:280px; }
-  .story p{
-    font-size:16.5px;
-    line-height:1.8;
-    color:var(--cream-text);
-    margin:0 0 16px;
-  }
-  .story b{ color:#fff; }
+    .row {
+      display: flex;
+      gap: 36px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .story {
+      flex: 1 1 56%;
+      min-width: 280px;
+    }
+    .story p {
+      font-size: 16.5px;
+      line-height: 1.8;
+      color: var(--cream-text);
+      margin: 0 0 16px;
+    }
+    .story b {
+      color: #fff;
+    }
 
-  .side{
-    flex:1 1 34%;
-    min-width:230px;
-    display:flex;
-    flex-direction:column;
-    gap:22px;
-  }
-  .polaroid{
-    background:var(--paper-cream);
-    padding:10px 10px 32px;
-    box-shadow:0 10px 22px rgba(0,0,0,0.35);
-    position:relative;
-    transform:rotate(var(--r,-2deg));
-  }
-  .polaroid:nth-child(1){--r:-3deg;}
-  .polaroid:nth-child(2){--r:2.5deg; align-self:flex-end; width:88%;}
-  .polaroid img{ width:100%; aspect-ratio:1/1; object-fit:cover; display:block; }
-  .polaroid .cap{
-    position:absolute; bottom:8px; left:10px; right:10px;
-    font-family:'Space Mono',monospace; font-size:10px; color:#5a5342; text-align:center;
-  }
-  .tape{
-    position:absolute; width:56px; height:20px;
-    background:rgba(201,168,118,0.85);
-    top:-10px; left:50%; transform:translateX(-50%) rotate(-3deg);
-    box-shadow:0 2px 4px rgba(0,0,0,0.25);
-  }
+    .side {
+      flex: 1 1 34%;
+      min-width: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .polaroid {
+      background: var(--paper-cream);
+      padding: 10px 10px 32px;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+      position: relative;
+      transform: rotate(var(--r, -2deg));
+    }
+    .polaroid:nth-child(1) {
+      --r: -3deg;
+    }
+    .polaroid:nth-child(2) {
+      --r: 2.5deg;
+      align-self: flex-end;
+      width: 88%;
+    }
+    .polaroid img,
+    .polaroid video {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      display: block;
+    }
+    .polaroid .cap {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      right: 10px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: #5a5342;
+      text-align: center;
+    }
+    .tape {
+      position: absolute;
+      width: 56px;
+      height: 20px;
+      background: rgba(201, 168, 118, 0.85);
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    }
 
-  .fact-card{
-    background:var(--quote-slate);
-    padding:16px 18px;
-    font-family:'Space Mono',monospace;
-    font-size:12px;
-    line-height:1.9;
-    color:var(--ink-text);
-    border-left:3px solid var(--mustard);
-  }
-  .fact-card b{ color:#0c1319; }
+    .fact-card {
+      background: var(--quote-slate);
+      padding: 16px 18px;
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--ink-text);
+      border-left: 3px solid var(--mustard);
+    }
+    .fact-card b {
+      color: #0c1319;
+    }
 
-  @media (max-width:600px){
-    .panel{ padding:26px 22px 32px; }
-    .polaroid:nth-child(2){ width:100%; align-self:stretch; }
-  }
-</style>
+    @media (max-width: 600px) {
+      .panel {
+        padding: 26px 22px 32px;
+      }
+      .polaroid:nth-child(2) {
+        width: 100%;
+        align-self: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="panel">
@@ -138,16 +185,22 @@
       </div>
 
       <div class="side">
+        <!-- Top Polaroid: Photo -->
         <div class="polaroid">
           <div class="tape"></div>
           <img src="images/oreo-01.jpg" alt="Oreo up close">
           <div class="cap">Oreo, up close</div>
         </div>
+
+        <!-- Bottom Polaroid: Video -->
         <div class="polaroid">
           <div class="tape"></div>
-          <img src="images/oreo-02.jpg" alt="Oreo sitting">
+          <video autoplay loop muted playsinline>
+            <source src="videos/oreo-02.mp4" type="video/mp4">
+          </video>
           <div class="cap">still hyper, honestly</div>
         </div>
+
         <div class="fact-card">
           <b>Name:</b> Oreo<br>
           <b>Breed:</b> Shih Tzu (purebred)<br>
