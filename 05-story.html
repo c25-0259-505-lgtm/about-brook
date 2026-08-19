@@ -140,7 +140,7 @@
         <div class="line-body">
           <div class="line-label">Line 01</div>
           <div class="line-text">Yeah&hellip; uhm, okay. Do we start like right now, or what? Oh, okay.</div>
-          <div class="line-note">audio placeholder &mdash; swap in story-01.mp3</div>
+          <div class="line-note">Interview from The Walk</div>
         </div>
       </div>
       <div class="line-card" data-audio="https://c25-0259-505-lgtm.github.io/about-brook/audio/story-02.mp3">
@@ -148,7 +148,7 @@
         <div class="line-body">
           <div class="line-label">Line 02</div>
           <div class="line-text">Hello, my name is Brooklyn David. I'm eighteen years old.</div>
-          <div class="line-note">audio placeholder &mdash; swap in story-02.mp3</div>
+          <div class="line-note">Interview from The Walk</div>
         </div>
       </div>
       <div class="line-card" data-audio="https://c25-0259-505-lgtm.github.io/about-brook/audio/story-03.mp3">
@@ -156,7 +156,7 @@
         <div class="line-body">
           <div class="line-label">Line 03</div>
           <div class="line-text">I can be very serious at times, but I also know how to let go and be free.</div>
-          <div class="line-note">audio placeholder &mdash; swap in story-03.mp3</div>
+          <div class="line-note">Interview from The Walk</div>
         </div>
       </div>
     </div>
@@ -209,7 +209,8 @@
     var p = audio.play();
     if(p && p.catch){
       p.catch(function(){
-        card.querySelector('.line-note').textContent = 'no audio file found yet at ' + card.getAttribute('data-audio');
+        var note = card.querySelector('.line-note');
+        if(note){ note.textContent = 'no audio file found yet at ' + card.getAttribute('data-audio'); }
         setTimeout(function(){
           card.classList.remove('active');
           card.querySelector('.line-play').innerHTML = '&#9658;';
