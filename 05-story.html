@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Lora:wght@400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#182430;
+    --mustard:#d3a13f;
+    --kraft-tan:#c9a876;
+    --rust:#b5502f;
+    --cream-text:#f4efe2;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;width:100%;}
+  body{ font-family:'Lora',serif; }
+
+  .story-section{
+    width:100%;
+    background:var(--ink-navy);
+    padding:34px 46px 42px;
+  }
+  .story-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .story-head .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--kraft-tan);
+  }
+  .story-head h2{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:600;
+    color:var(--cream-text);
+    font-size:28px;
+    margin:4px 0 0;
+  }
+  .play-all{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    letter-spacing:.06em;
+    background:var(--mustard);
+    color:var(--ink-navy);
+    border:none;
+    padding:11px 18px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .play-all:hover{ background:#e3b258; transform:translateY(-1px); }
+  .play-all:active{ transform:translateY(0); }
+  .play-all[data-state="playing"]{ background:var(--rust); color:#fff; }
+
+  .line-card{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    background:rgba(244,239,226,0.06);
+    border-left:2px solid rgba(211,161,63,0.35);
+    padding:16px 18px;
+    margin-bottom:10px;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .line-card.active{
+    background:rgba(211,161,63,0.14);
+    border-left-color:var(--mustard);
+  }
+  .line-play{
+    flex-shrink:0;
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1.5px solid var(--kraft-tan);
+    background:transparent;
+    color:var(--cream-text);
+    cursor:pointer;
+    font-size:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .line-play:hover{ background:var(--kraft-tan); color:var(--ink-navy); }
+  .line-card.active .line-play{ background:var(--mustard); color:var(--ink-navy); border-color:var(--mustard); }
+
+  .line-body{ flex:1; padding-top:5px; }
+  .line-label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--kraft-tan);
+    margin-bottom:5px;
+  }
+  .line-text{
+    font-size:16px;
+    line-height:1.6;
+    color:var(--cream-text);
+  }
+  .line-note{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:#8fa1ab;
+    margin-top:6px;
+  }
+
+  @media (max-width:600px){
+    .story-section{ padding:24px 22px 30px; }
+  }
+</style>
+</head>
+<body>
+  <section class="story-section">
+    <div class="story-head">
+      <div>
+        <div class="eyebrow">In his own words</div>
+        <h2>The Story</h2>
+      </div>
+      <button class="play-all" id="playAllBtn" data-state="idle">
+        <span id="playAllIcon">&#9658;</span> <span id="playAllLabel">Play the full story</span>
+      </button>
+    </div>
+
+    <!--
+      NARRATED TRANSCRIPT MODULE
+      ---------------------------------------------------------
+      Each .line-card is one spoken line. Replace data-audio with
+      the real filename once the recording is ready, e.g.
+      audio/story-01.mp3, audio/story-02.mp3, etc.
+      Paths are relative to THIS file's hosted location, so keep
+      an "audio" folder next to wherever you upload this html.
+      Add or remove .line-card blocks freely — the script below
+      finds them automatically, no other code needs to change.
+    -->
+    <div id="storyLines">
+      <div class="line-card" data-audio="audio/story-01.mp3">
+        <button class="line-play" aria-label="Play line 1">&#9658;</button>
+        <div class="line-body">
+          <div class="line-label">Line 01</div>
+          <div class="line-text">Yeah&hellip; uhm, okay. Do we start like right now, or what? Oh, okay.</div>
+          <div class="line-note">audio placeholder &mdash; swap in story-01.mp3</div>
+        </div>
+      </div>
+      <div class="line-card" data-audio="audio/story-02.mp3">
+        <button class="line-play" aria-label="Play line 2">&#9658;</button>
+        <div class="line-body">
+          <div class="line-label">Line 02</div>
+          <div class="line-text">Hello, my name is Brooklyn David. I'm eighteen years old.</div>
+          <div class="line-note">audio placeholder &mdash; swap in story-02.mp3</div>
+        </div>
+      </div>
+      <div class="line-card" data-audio="audio/story-03.mp3">
+        <button class="line-play" aria-label="Play line 3">&#9658;</button>
+        <div class="line-body">
+          <div class="line-label">Line 03</div>
+          <div class="line-text">I can be very serious at times, but I also know how to let go and be free.</div>
+          <div class="line-note">audio placeholder &mdash; swap in story-03.mp3</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script>
+(function(){
+  var lines = Array.prototype.slice.call(document.querySelectorAll('.line-card'));
+  var players = {};
+  var playAllBtn = document.getElementById('playAllBtn');
+  var playAllIcon = document.getElementById('playAllIcon');
+  var playAllLabel = document.getElementById('playAllLabel');
+  var sequencePlaying = false;
+
+  function getAudio(card){
+    var src = card.getAttribute('data-audio');
+    if(!players[src]){ players[src] = new Audio(src); }
+    return players[src];
+  }
+
+  function clearActive(){
+    lines.forEach(function(c){
+      c.classList.remove('active');
+      c.querySelector('.line-play').innerHTML = '&#9658;';
+    });
+  }
+
+  function stopAllExcept(keepAudio){
+    Object.keys(players).forEach(function(src){
+      if(players[src] !== keepAudio){ players[src].pause(); players[src].currentTime = 0; }
+    });
+  }
+
+  function stopAll(){
+    Object.keys(players).forEach(function(src){ players[src].pause(); players[src].currentTime = 0; });
+    clearActive();
+    sequencePlaying = false;
+    playAllBtn.setAttribute('data-state','idle');
+    playAllIcon.innerHTML = '&#9658;';
+    playAllLabel.textContent = 'Play the full story';
+  }
+
+  function playLine(card, onEnded){
+    var audio = getAudio(card);
+    stopAllExcept(audio);
+    clearActive();
+    card.classList.add('active');
+    card.querySelector('.line-play').innerHTML = '&#10074;&#10074;';
+    audio.currentTime = 0;
+    var p = audio.play();
+    if(p && p.catch){
+      p.catch(function(){
+        card.querySelector('.line-note').textContent = 'no audio file found yet at ' + card.getAttribute('data-audio');
+        setTimeout(function(){
+          card.classList.remove('active');
+          card.querySelector('.line-play').innerHTML = '&#9658;';
+          if(onEnded) onEnded();
+        }, 900);
+      });
+    }
+    audio.onended = function(){
+      card.classList.remove('active');
+      card.querySelector('.line-play').innerHTML = '&#9658;';
+      if(onEnded) onEnded();
+    };
+  }
+
+  lines.forEach(function(card){
+    card.querySelector('.line-play').addEventListener('click', function(){
+      var isActive = card.classList.contains('active');
+      sequencePlaying = false;
+      if(isActive){ stopAll(); } else { playLine(card); }
+    });
+  });
+
+  function playSequenceFrom(i){
+    if(i >= lines.length){ stopAll(); return; }
+    sequencePlaying = true;
+    playAllBtn.setAttribute('data-state','playing');
+    playAllIcon.innerHTML = '&#10074;&#10074;';
+    playAllLabel.textContent = 'Playing &mdash; line ' + (i+1) + ' of ' + lines.length;
+    playLine(lines[i], function(){ if(sequencePlaying){ playSequenceFrom(i+1); } });
+  }
+
+  playAllBtn.addEventListener('click', function(){
+    if(sequencePlaying){ stopAll(); } else { playSequenceFrom(0); }
+  });
+})();
+</script>
+</body>
+</html>

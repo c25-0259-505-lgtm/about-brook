@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#182430;
+    --mustard:#d3a13f;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;width:100%;}
+  body{ font-family:'Space Mono',monospace; }
+
+  .footer-bar{
+    width:100%;
+    background:var(--ink-navy);
+    color:#c9d1d6;
+    font-size:12px;
+    padding:14px 46px;
+    display:flex;
+    justify-content:space-between;
+    border-top:3px solid var(--mustard);
+    letter-spacing:.02em;
+  }
+  @media (max-width:600px){
+    .footer-bar{ padding:14px 22px; }
+  }
+</style>
+</head>
+<body>
+  <footer class="footer-bar">
+    <span>Profile &middot; 01</span>
+    <span>aguilar &middot; about page</span>
+  </footer>
+</body>
+</html>

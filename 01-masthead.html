@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masthead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink-navy:#182430;
+    --mustard:#d3a13f;
+    --kraft-tan:#c9a876;
+    --cream-text:#f4efe2;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;width:100%;}
+  body{ font-family:'Space Mono',monospace; }
+
+  .masthead{
+    width:100%;
+    background:var(--ink-navy);
+    color:var(--cream-text);
+    padding:26px 48px 22px;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+    border-bottom:3px solid var(--mustard);
+  }
+  .masthead .eyebrow{
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--kraft-tan);
+  }
+  .masthead .credit{
+    font-size:12px;
+    letter-spacing:.03em;
+    color:#c9d1d6;
+    text-align:right;
+  }
+  @media (max-width:600px){
+    .masthead{ padding:20px 22px; }
+  }
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="eyebrow">Student Profile &middot; 2026</div>
+    <div class="credit">About the person behind this page</div>
+  </header>
+</body>
+</html>
